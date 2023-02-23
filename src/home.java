@@ -1,3 +1,6 @@
+
+import javax.swing.JOptionPane;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -25,18 +28,73 @@ public class home extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnNewBuyer = new javax.swing.JButton();
+        btnUpdateBuyer = new javax.swing.JButton();
+        btnBuyerDetails = new javax.swing.JButton();
+        btnDeleteBuyer = new javax.swing.JButton();
+        btnNewProduct = new javax.swing.JButton();
+        btnUpdateProduct = new javax.swing.JButton();
+        btnProductDetails = new javax.swing.JButton();
+        btnDeleteProduct = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(1366, 767));
+        setMaximumSize(new java.awt.Dimension(1366, 768));
+        setMinimumSize(new java.awt.Dimension(1366, 768));
+
+        btnNewBuyer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/new buyer.png"))); // NOI18N
+
+        btnUpdateBuyer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Update buyer.png"))); // NOI18N
+
+        btnBuyerDetails.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buyer Details.png"))); // NOI18N
+
+        btnDeleteBuyer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/delete buyer.png"))); // NOI18N
+
+        btnNewProduct.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/new product.png"))); // NOI18N
+
+        btnUpdateProduct.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/update product.png"))); // NOI18N
+
+        btnProductDetails.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/details product.png"))); // NOI18N
+
+        btnDeleteProduct.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/delete product.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 830, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(97, 97, 97)
+                .addComponent(btnNewBuyer)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnUpdateBuyer)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnBuyerDetails)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnDeleteBuyer)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnNewProduct)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnUpdateProduct)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnProductDetails)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnDeleteProduct)
+                .addContainerGap(693, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 563, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(86, 86, 86)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnDeleteProduct)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(btnProductDetails)
+                        .addComponent(btnUpdateProduct)
+                        .addComponent(btnNewProduct)
+                        .addComponent(btnUpdateBuyer)
+                        .addComponent(btnNewBuyer)
+                        .addComponent(btnBuyerDetails)
+                        .addComponent(btnDeleteBuyer)))
+                .addContainerGap(616, Short.MAX_VALUE))
         );
 
         pack();
@@ -55,5 +113,13 @@ public class home extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBuyerDetails;
+    private javax.swing.JButton btnDeleteBuyer;
+    private javax.swing.JButton btnDeleteProduct;
+    private javax.swing.JButton btnNewBuyer;
+    private javax.swing.JButton btnNewProduct;
+    private javax.swing.JButton btnProductDetails;
+    private javax.swing.JButton btnUpdateBuyer;
+    private javax.swing.JButton btnUpdateProduct;
     // End of variables declaration//GEN-END:variables
 }
