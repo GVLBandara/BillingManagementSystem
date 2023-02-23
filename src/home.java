@@ -1,4 +1,5 @@
 
+import javax.swing.JComponent;
 import javax.swing.JOptionPane;
 
 /*
@@ -11,12 +12,40 @@ import javax.swing.JOptionPane;
  * @author Gota
  */
 public class home extends javax.swing.JFrame {
+    JComponent[] obj;
 
     /**
      * Creates new form home
      */
     public home() {
         initComponents();
+        
+        obj = new  JComponent[]{btnNewBuyer,
+        btnUpdateBuyer,
+        btnBuyerDetails,
+        btnDeleteBuyer,
+        btnNewProduct,
+        btnUpdateProduct,
+        btnProductDetails,
+        btnDeleteProduct,
+        btnBilling,
+        btnLogout,
+        btnClose,
+        jLabel1,
+        jLabel2,
+        jLabel3,
+        jLabel4,
+        jLabel5,
+        jLabel6,
+        jLabel7,
+        jLabel8,
+        jLabel9,
+        jLabel10,
+        jLabel11};
+        
+        for(int i = 0; i<obj.length; i++){
+            obj[i].setVisible(false);
+        }
     }
 
     /**
@@ -36,69 +65,408 @@ public class home extends javax.swing.JFrame {
         btnUpdateProduct = new javax.swing.JButton();
         btnProductDetails = new javax.swing.JButton();
         btnDeleteProduct = new javax.swing.JButton();
+        btnBilling = new javax.swing.JButton();
+        btnLogout = new javax.swing.JButton();
+        btnClose = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBounds(new java.awt.Rectangle(0, 0, 0, 0));
         setMaximumSize(new java.awt.Dimension(1366, 768));
         setMinimumSize(new java.awt.Dimension(1366, 768));
+        setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(1366, 768));
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                formComponentShown(evt);
+            }
+        });
 
         btnNewBuyer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/new buyer.png"))); // NOI18N
+        btnNewBuyer.setMaximumSize(new java.awt.Dimension(100, 100));
+        btnNewBuyer.setMinimumSize(new java.awt.Dimension(80, 80));
+        btnNewBuyer.setPreferredSize(new java.awt.Dimension(100, 100));
+        btnNewBuyer.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                btnNewBuyerComponentShown(evt);
+            }
+        });
 
         btnUpdateBuyer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Update buyer.png"))); // NOI18N
+        btnUpdateBuyer.setMaximumSize(new java.awt.Dimension(100, 100));
+        btnUpdateBuyer.setMinimumSize(new java.awt.Dimension(80, 80));
+        btnUpdateBuyer.setPreferredSize(new java.awt.Dimension(100, 100));
+        btnUpdateBuyer.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                btnUpdateBuyerComponentShown(evt);
+            }
+        });
 
         btnBuyerDetails.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buyer Details.png"))); // NOI18N
+        btnBuyerDetails.setMaximumSize(new java.awt.Dimension(100, 100));
+        btnBuyerDetails.setMinimumSize(new java.awt.Dimension(80, 80));
+        btnBuyerDetails.setPreferredSize(new java.awt.Dimension(100, 100));
+        btnBuyerDetails.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                btnBuyerDetailsComponentShown(evt);
+            }
+        });
 
         btnDeleteBuyer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/delete buyer.png"))); // NOI18N
+        btnDeleteBuyer.setMaximumSize(new java.awt.Dimension(100, 100));
+        btnDeleteBuyer.setMinimumSize(new java.awt.Dimension(80, 80));
+        btnDeleteBuyer.setPreferredSize(new java.awt.Dimension(100, 100));
+        btnDeleteBuyer.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                btnDeleteBuyerComponentShown(evt);
+            }
+        });
 
         btnNewProduct.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/new product.png"))); // NOI18N
+        btnNewProduct.setMaximumSize(new java.awt.Dimension(100, 100));
+        btnNewProduct.setMinimumSize(new java.awt.Dimension(80, 80));
+        btnNewProduct.setPreferredSize(new java.awt.Dimension(100, 100));
+        btnNewProduct.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                btnNewProductComponentShown(evt);
+            }
+        });
 
         btnUpdateProduct.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/update product.png"))); // NOI18N
+        btnUpdateProduct.setMaximumSize(new java.awt.Dimension(100, 100));
+        btnUpdateProduct.setMinimumSize(new java.awt.Dimension(80, 80));
+        btnUpdateProduct.setPreferredSize(new java.awt.Dimension(100, 100));
+        btnUpdateProduct.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                btnUpdateProductComponentShown(evt);
+            }
+        });
 
         btnProductDetails.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/details product.png"))); // NOI18N
+        btnProductDetails.setMaximumSize(new java.awt.Dimension(100, 100));
+        btnProductDetails.setMinimumSize(new java.awt.Dimension(80, 80));
+        btnProductDetails.setPreferredSize(new java.awt.Dimension(100, 100));
+        btnProductDetails.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                btnProductDetailsComponentShown(evt);
+            }
+        });
 
         btnDeleteProduct.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/delete product.png"))); // NOI18N
+        btnDeleteProduct.setMaximumSize(new java.awt.Dimension(100, 100));
+        btnDeleteProduct.setMinimumSize(new java.awt.Dimension(80, 80));
+        btnDeleteProduct.setPreferredSize(new java.awt.Dimension(100, 100));
+        btnDeleteProduct.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                btnDeleteProductComponentShown(evt);
+            }
+        });
+
+        btnBilling.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/billing.png"))); // NOI18N
+        btnBilling.setToolTipText("");
+        btnBilling.setMaximumSize(new java.awt.Dimension(100, 100));
+        btnBilling.setMinimumSize(new java.awt.Dimension(80, 80));
+        btnBilling.setPreferredSize(new java.awt.Dimension(100, 100));
+        btnBilling.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                btnBillingComponentShown(evt);
+            }
+        });
+
+        btnLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logout.png"))); // NOI18N
+        btnLogout.setMaximumSize(new java.awt.Dimension(100, 100));
+        btnLogout.setMinimumSize(new java.awt.Dimension(80, 80));
+        btnLogout.setPreferredSize(new java.awt.Dimension(100, 100));
+        btnLogout.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                btnLogoutComponentShown(evt);
+            }
+        });
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogoutActionPerformed(evt);
+            }
+        });
+
+        btnClose.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Close.png"))); // NOI18N
+        btnClose.setMaximumSize(new java.awt.Dimension(100, 100));
+        btnClose.setMinimumSize(new java.awt.Dimension(80, 80));
+        btnClose.setPreferredSize(new java.awt.Dimension(100, 100));
+        btnClose.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCloseActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("New Buyer");
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Update Buyer");
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("Buyer Details");
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("Delete Buyer");
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("New Product");
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("Update Product");
+
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("Product Details");
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText("Delete Product");
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel9.setText("Billing");
+
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setText("Logout");
+
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel11.setText("Close");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(97, 97, 97)
-                .addComponent(btnNewBuyer)
+                .addGap(66, 66, 66)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(btnNewBuyer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnUpdateBuyer)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnUpdateBuyer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnBuyerDetails)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnBuyerDetails, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnDeleteBuyer)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnDeleteBuyer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnNewProduct)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnNewProduct, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnUpdateProduct)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnUpdateProduct, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnProductDetails)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnProductDetails, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnDeleteProduct)
-                .addContainerGap(693, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnDeleteProduct, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnBilling, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel10))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnClose, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11))
+                .addContainerGap(211, Short.MAX_VALUE))
         );
+
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnBilling, btnBuyerDetails, btnClose, btnDeleteBuyer, btnDeleteProduct, btnLogout, btnNewBuyer, btnNewProduct, btnProductDetails, btnUpdateBuyer, btnUpdateProduct, jLabel1, jLabel10, jLabel11, jLabel2, jLabel3, jLabel4, jLabel5, jLabel6, jLabel7, jLabel8, jLabel9});
+
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(86, 86, 86)
+                .addGap(76, 76, 76)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnDeleteProduct)
+                    .addComponent(btnClose, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBilling, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnDeleteProduct, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(btnProductDetails)
-                        .addComponent(btnUpdateProduct)
-                        .addComponent(btnNewProduct)
-                        .addComponent(btnUpdateBuyer)
-                        .addComponent(btnNewBuyer)
-                        .addComponent(btnBuyerDetails)
-                        .addComponent(btnDeleteBuyer)))
-                .addContainerGap(616, Short.MAX_VALUE))
+                        .addComponent(btnProductDetails, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnUpdateProduct, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnNewProduct, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnUpdateBuyer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnNewBuyer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnBuyerDetails, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnDeleteBuyer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel1)
+                        .addComponent(jLabel2))
+                    .addComponent(jLabel3)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel4)
+                        .addComponent(jLabel5))
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel7)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel8)
+                        .addComponent(jLabel9))
+                    .addComponent(jLabel10)
+                    .addComponent(jLabel11))
+                .addContainerGap(568, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseActionPerformed
+        int a = JOptionPane.showConfirmDialog(null, "Do you really want to close the application?", "select", JOptionPane.YES_NO_OPTION);
+        if(a == 0)
+        System.exit(0);
+    }//GEN-LAST:event_btnCloseActionPerformed
+
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+        if(JOptionPane.showConfirmDialog(null, "Do you really want to logout?", "select", JOptionPane.YES_NO_OPTION) == 0){
+            setVisible(false);
+            new login().setVisible(true);
+        }
+    }//GEN-LAST:event_btnLogoutActionPerformed
+
+    private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
+        try{
+            Thread.sleep(250);
+        }
+        catch(InterruptedException e){
+        }
+        obj[0].setVisible(true);
+        obj[11].setVisible(true);
+    }//GEN-LAST:event_formComponentShown
+
+    private void btnNewBuyerComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_btnNewBuyerComponentShown
+        try{
+            Thread.sleep(250);
+        }
+        catch(InterruptedException e){
+        }
+        obj[1].setVisible(true);
+        obj[12].setVisible(true);
+    }//GEN-LAST:event_btnNewBuyerComponentShown
+
+    private void btnUpdateBuyerComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_btnUpdateBuyerComponentShown
+        try{
+            Thread.sleep(250);
+        }
+        catch(InterruptedException e){
+        }
+        obj[2].setVisible(true);
+        obj[13].setVisible(true);
+    }//GEN-LAST:event_btnUpdateBuyerComponentShown
+
+    private void btnBuyerDetailsComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_btnBuyerDetailsComponentShown
+        try{
+            Thread.sleep(250);
+        }
+        catch(InterruptedException e){
+        }
+        obj[3].setVisible(true);
+        obj[14].setVisible(true);
+    }//GEN-LAST:event_btnBuyerDetailsComponentShown
+
+    private void btnDeleteBuyerComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_btnDeleteBuyerComponentShown
+        try{
+            Thread.sleep(250);
+        }
+        catch(InterruptedException e){
+        }
+        obj[4].setVisible(true);
+        obj[15].setVisible(true);
+    }//GEN-LAST:event_btnDeleteBuyerComponentShown
+
+    private void btnNewProductComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_btnNewProductComponentShown
+        try{
+            Thread.sleep(250);
+        }
+        catch(InterruptedException e){
+        }
+        obj[5].setVisible(true);
+        obj[16].setVisible(true);
+    }//GEN-LAST:event_btnNewProductComponentShown
+
+    private void btnUpdateProductComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_btnUpdateProductComponentShown
+        try{
+            Thread.sleep(250);
+        }
+        catch(InterruptedException e){
+        }
+        obj[6].setVisible(true);
+        obj[17].setVisible(true);
+    }//GEN-LAST:event_btnUpdateProductComponentShown
+
+    private void btnProductDetailsComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_btnProductDetailsComponentShown
+        try{
+            Thread.sleep(250);
+        }
+        catch(InterruptedException e){
+        }
+        obj[7].setVisible(true);
+        obj[18].setVisible(true);
+    }//GEN-LAST:event_btnProductDetailsComponentShown
+
+    private void btnDeleteProductComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_btnDeleteProductComponentShown
+        try{
+            Thread.sleep(250);
+        }
+        catch(InterruptedException e){
+        }
+        obj[8].setVisible(true);
+        obj[19].setVisible(true);
+    }//GEN-LAST:event_btnDeleteProductComponentShown
+
+    private void btnBillingComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_btnBillingComponentShown
+        try{
+            Thread.sleep(250);
+        }
+        catch(InterruptedException e){
+        }
+        obj[9].setVisible(true);
+        obj[20].setVisible(true);
+    }//GEN-LAST:event_btnBillingComponentShown
+
+    private void btnLogoutComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_btnLogoutComponentShown
+       try{
+            Thread.sleep(250);
+        }
+        catch(InterruptedException e){
+        }
+        obj[10].setVisible(true);
+        obj[21].setVisible(true);
+    }//GEN-LAST:event_btnLogoutComponentShown
 
     /**
      * @param args the command line arguments
@@ -113,13 +481,27 @@ public class home extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBilling;
     private javax.swing.JButton btnBuyerDetails;
+    private javax.swing.JButton btnClose;
     private javax.swing.JButton btnDeleteBuyer;
     private javax.swing.JButton btnDeleteProduct;
+    private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnNewBuyer;
     private javax.swing.JButton btnNewProduct;
     private javax.swing.JButton btnProductDetails;
     private javax.swing.JButton btnUpdateBuyer;
     private javax.swing.JButton btnUpdateProduct;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     // End of variables declaration//GEN-END:variables
 }
