@@ -1,5 +1,6 @@
 
 import javax.swing.JComponent;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /*
@@ -13,6 +14,8 @@ import javax.swing.JOptionPane;
  */
 public class home extends javax.swing.JFrame {
     JComponent[] obj;
+    JFrame currentFrame = new JFrame();
+    int delay = 100;
 
     /**
      * Creates new form home
@@ -101,6 +104,11 @@ public class home extends javax.swing.JFrame {
                 btnNewBuyerComponentShown(evt);
             }
         });
+        btnNewBuyer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNewBuyerActionPerformed(evt);
+            }
+        });
 
         btnUpdateBuyer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Update buyer.png"))); // NOI18N
         btnUpdateBuyer.setMaximumSize(new java.awt.Dimension(100, 100));
@@ -109,6 +117,11 @@ public class home extends javax.swing.JFrame {
         btnUpdateBuyer.addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentShown(java.awt.event.ComponentEvent evt) {
                 btnUpdateBuyerComponentShown(evt);
+            }
+        });
+        btnUpdateBuyer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateBuyerActionPerformed(evt);
             }
         });
 
@@ -346,21 +359,26 @@ public class home extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseActionPerformed
+        currentFrame.setVisible(false);
         int a = JOptionPane.showConfirmDialog(null, "Do you really want to close the application?", "select", JOptionPane.YES_NO_OPTION);
         if(a == 0)
-        System.exit(0);
+            System.exit(0);
+        else
+            currentFrame.setVisible(true);
     }//GEN-LAST:event_btnCloseActionPerformed
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+        currentFrame.setVisible(false);
         if(JOptionPane.showConfirmDialog(null, "Do you really want to logout?", "select", JOptionPane.YES_NO_OPTION) == 0){
             setVisible(false);
             new login().setVisible(true);
-        }
+        }else
+            currentFrame.setVisible(true);
     }//GEN-LAST:event_btnLogoutActionPerformed
 
     private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
         try{
-            Thread.sleep(250);
+            Thread.sleep(delay);
         }
         catch(InterruptedException e){
         }
@@ -370,7 +388,7 @@ public class home extends javax.swing.JFrame {
 
     private void btnNewBuyerComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_btnNewBuyerComponentShown
         try{
-            Thread.sleep(250);
+            Thread.sleep(delay);
         }
         catch(InterruptedException e){
         }
@@ -380,7 +398,7 @@ public class home extends javax.swing.JFrame {
 
     private void btnUpdateBuyerComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_btnUpdateBuyerComponentShown
         try{
-            Thread.sleep(250);
+            Thread.sleep(delay);
         }
         catch(InterruptedException e){
         }
@@ -390,7 +408,7 @@ public class home extends javax.swing.JFrame {
 
     private void btnBuyerDetailsComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_btnBuyerDetailsComponentShown
         try{
-            Thread.sleep(250);
+            Thread.sleep(delay);
         }
         catch(InterruptedException e){
         }
@@ -400,7 +418,7 @@ public class home extends javax.swing.JFrame {
 
     private void btnDeleteBuyerComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_btnDeleteBuyerComponentShown
         try{
-            Thread.sleep(250);
+            Thread.sleep(delay);
         }
         catch(InterruptedException e){
         }
@@ -410,7 +428,7 @@ public class home extends javax.swing.JFrame {
 
     private void btnNewProductComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_btnNewProductComponentShown
         try{
-            Thread.sleep(250);
+            Thread.sleep(delay);
         }
         catch(InterruptedException e){
         }
@@ -420,7 +438,7 @@ public class home extends javax.swing.JFrame {
 
     private void btnUpdateProductComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_btnUpdateProductComponentShown
         try{
-            Thread.sleep(250);
+            Thread.sleep(delay);
         }
         catch(InterruptedException e){
         }
@@ -430,7 +448,7 @@ public class home extends javax.swing.JFrame {
 
     private void btnProductDetailsComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_btnProductDetailsComponentShown
         try{
-            Thread.sleep(250);
+            Thread.sleep(delay);
         }
         catch(InterruptedException e){
         }
@@ -440,7 +458,7 @@ public class home extends javax.swing.JFrame {
 
     private void btnDeleteProductComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_btnDeleteProductComponentShown
         try{
-            Thread.sleep(250);
+            Thread.sleep(delay);
         }
         catch(InterruptedException e){
         }
@@ -450,7 +468,7 @@ public class home extends javax.swing.JFrame {
 
     private void btnBillingComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_btnBillingComponentShown
         try{
-            Thread.sleep(250);
+            Thread.sleep(delay);
         }
         catch(InterruptedException e){
         }
@@ -460,13 +478,25 @@ public class home extends javax.swing.JFrame {
 
     private void btnLogoutComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_btnLogoutComponentShown
        try{
-            Thread.sleep(250);
+            Thread.sleep(delay);
         }
         catch(InterruptedException e){
         }
         obj[10].setVisible(true);
         obj[21].setVisible(true);
     }//GEN-LAST:event_btnLogoutComponentShown
+
+    private void btnNewBuyerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewBuyerActionPerformed
+        currentFrame.setVisible(false);
+        currentFrame = new newBuyer();
+        currentFrame.setVisible(true);
+    }//GEN-LAST:event_btnNewBuyerActionPerformed
+
+    private void btnUpdateBuyerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateBuyerActionPerformed
+        currentFrame.setVisible(false);
+        currentFrame = new updateBuyer();
+        currentFrame.setVisible(true);
+    }//GEN-LAST:event_btnUpdateBuyerActionPerformed
 
     /**
      * @param args the command line arguments
