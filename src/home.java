@@ -164,6 +164,11 @@ public class home extends javax.swing.JFrame {
                 btnNewProductComponentShown(evt);
             }
         });
+        btnNewProduct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNewProductActionPerformed(evt);
+            }
+        });
 
         btnUpdateProduct.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/update product.png"))); // NOI18N
         btnUpdateProduct.setMaximumSize(new java.awt.Dimension(100, 100));
@@ -527,6 +532,14 @@ public class home extends javax.swing.JFrame {
             currentFrame.setVisible(true);
         }
     }//GEN-LAST:event_btnDeleteBuyerActionPerformed
+
+    private void btnNewProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewProductActionPerformed
+        if(!currentFrame.getClass().getName().equals("newProduct")){
+            currentFrame.setVisible(false);
+            currentFrame = new newProduct();
+            currentFrame.setVisible(true);
+        }
+    }//GEN-LAST:event_btnNewProductActionPerformed
 
     /**
      * @param args the command line arguments

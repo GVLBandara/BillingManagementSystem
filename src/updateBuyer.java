@@ -290,8 +290,9 @@ public class updateBuyer extends javax.swing.JFrame {
             Statement statement = connection.createStatement();
             i = statement.executeUpdate("update buyer set name =  '"+ name +"' ,  address = '"+ address +"' , contact_no =  '"+ contact +"' ,  email = '"+ email +"' , gender ='"+ gender +"' where buyer_id = '"+ id +"'");
         } catch (SQLException ex) {
-            Logger.getLogger(updateBuyer.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showMessageDialog(null, ex, "Error!",JOptionPane.WARNING_MESSAGE);
+            setAlwaysOnTop(false);
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Error!",JOptionPane.WARNING_MESSAGE);
+            setAlwaysOnTop(true);
         }
         if(i == 1){
             JOptionPane.showMessageDialog(null, "Successfully updated!");

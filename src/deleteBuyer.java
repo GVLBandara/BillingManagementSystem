@@ -299,7 +299,9 @@ public class deleteBuyer extends javax.swing.JFrame {
                 Statement statement = connection.createStatement();
                 i = statement.executeUpdate("delete from buyer where contact_no = '"+ contact +"'");
             } catch (SQLException ex) {
-                JOptionPane.showMessageDialog(null, ex, "Error!",JOptionPane.WARNING_MESSAGE);
+                setAlwaysOnTop(false);
+                JOptionPane.showMessageDialog(null, ex.getMessage(), "Error!",JOptionPane.WARNING_MESSAGE);
+                setAlwaysOnTop(true);
             }
             if(i == 1){
                 JOptionPane.showMessageDialog(null, "Successfully deleted!");

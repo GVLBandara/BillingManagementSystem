@@ -158,6 +158,15 @@ public class newBuyer extends javax.swing.JFrame {
 
         cmbGender.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         cmbGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female", "Other" }));
+        cmbGender.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
+            public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
+            }
+            public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {
+                cmbGenderPopupMenuWillBecomeInvisible(evt);
+            }
+            public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
+            }
+        });
 
         btnSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/save.png"))); // NOI18N
         btnSave.setText("Save");
@@ -361,6 +370,7 @@ public class newBuyer extends javax.swing.JFrame {
 
     private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
         cmbGender.requestFocus();
+        cmbGender.setPopupVisible(rootPaneCheckingEnabled);
     }//GEN-LAST:event_txtEmailActionPerformed
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
@@ -376,8 +386,9 @@ public class newBuyer extends javax.swing.JFrame {
             Statement statement = connection.createStatement();
             i = statement.executeUpdate("insert into buyer values('"+ id +"' , '"+ name +"' , '"+ address +"' , '"+ contact +"' , '"+ email +"' , '"+ gender +"')");
         } catch (SQLException ex) {
-            Logger.getLogger(newBuyer.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showMessageDialog(null, ex, "Error!",JOptionPane.WARNING_MESSAGE);
+            setAlwaysOnTop(false);
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Error!",JOptionPane.WARNING_MESSAGE);
+            setAlwaysOnTop(false);
         }
         if(i == 1){
             JOptionPane.showMessageDialog(null, "Successfully registered!");
@@ -391,7 +402,7 @@ public class newBuyer extends javax.swing.JFrame {
         try {
             generateID();
         } catch (SQLException ex) {
-            Logger.getLogger(newBuyer.class.getName()).log(Level.SEVERE, null, ex);
+            
         }
     }//GEN-LAST:event_formComponentShown
 
@@ -421,6 +432,10 @@ public class newBuyer extends javax.swing.JFrame {
         txtAddress.requestFocus();
     }//GEN-LAST:event_txtNameActionPerformed
 
+    private void cmbGenderPopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_cmbGenderPopupMenuWillBecomeInvisible
+        btnSave.requestFocus();
+    }//GEN-LAST:event_cmbGenderPopupMenuWillBecomeInvisible
+
     private void generateID() throws SQLException{
         String newid;
         Statement statement = connection.createStatement();
@@ -428,13 +443,13 @@ public class newBuyer extends javax.swing.JFrame {
         if(resultSet.next()){
             int id = Integer.parseInt(resultSet.getString(1).substring(1)) +1;
             if(id<10)
-                newid = "U00" + id;
+                newid = "B00" + id;
             else if (id<100)
-                newid = "U0" + id;
+                newid = "B0" + id;
             else
-                newid = "U" + id;
+                newid = "B" + id;
         }else
-            newid = "U001";
+            newid = "B001";
         lblID.setText(newid);
     }
     /**
