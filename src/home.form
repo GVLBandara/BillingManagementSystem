@@ -261,6 +261,7 @@
       </Properties>
       <Events>
         <EventHandler event="componentShown" listener="java.awt.event.ComponentListener" parameters="java.awt.event.ComponentEvent" handler="btnUpdateProductComponentShown"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnUpdateProductActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnProductDetails">
