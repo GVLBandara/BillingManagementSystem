@@ -513,7 +513,11 @@ public class home extends javax.swing.JFrame {
     }//GEN-LAST:event_btnUpdateBuyerActionPerformed
 
     private void btnBuyerDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuyerDetailsActionPerformed
-        // TODO add your handling code here:
+        if(!currentFrame.getClass().getName().equals("buyerDetails")){
+            currentFrame.setVisible(false);
+            currentFrame = new buyerDetails();
+            currentFrame.setVisible(true);
+        }
     }//GEN-LAST:event_btnBuyerDetailsActionPerformed
 
     private void btnDeleteBuyerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteBuyerActionPerformed

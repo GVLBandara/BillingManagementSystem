@@ -55,11 +55,14 @@ public class deleteBuyer extends javax.swing.JFrame {
         lblGender = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setAlwaysOnTop(true);
+        setLocation(new java.awt.Point(380, 200));
+        setUndecorated(true);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Update buyer.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/delete buyer.png"))); // NOI18N
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/update buyer ani.gif"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Delete buyer ani.gif"))); // NOI18N
 
         btnSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/search.png"))); // NOI18N
         btnSearch.setText("Search");
