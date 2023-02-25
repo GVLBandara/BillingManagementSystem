@@ -134,6 +134,11 @@ public class home extends javax.swing.JFrame {
                 btnBuyerDetailsComponentShown(evt);
             }
         });
+        btnBuyerDetails.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuyerDetailsActionPerformed(evt);
+            }
+        });
 
         btnDeleteBuyer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/delete buyer.png"))); // NOI18N
         btnDeleteBuyer.setMaximumSize(new java.awt.Dimension(100, 100));
@@ -142,6 +147,11 @@ public class home extends javax.swing.JFrame {
         btnDeleteBuyer.addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentShown(java.awt.event.ComponentEvent evt) {
                 btnDeleteBuyerComponentShown(evt);
+            }
+        });
+        btnDeleteBuyer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteBuyerActionPerformed(evt);
             }
         });
 
@@ -487,16 +497,32 @@ public class home extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLogoutComponentShown
 
     private void btnNewBuyerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewBuyerActionPerformed
-        currentFrame.setVisible(false);
-        currentFrame = new newBuyer();
-        currentFrame.setVisible(true);
+        if(!currentFrame.getClass().getName().equals("newBuyer")){
+            currentFrame.setVisible(false);
+            currentFrame = new newBuyer();
+            currentFrame.setVisible(true);
+        }
     }//GEN-LAST:event_btnNewBuyerActionPerformed
 
     private void btnUpdateBuyerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateBuyerActionPerformed
-        currentFrame.setVisible(false);
-        currentFrame = new updateBuyer();
-        currentFrame.setVisible(true);
+        if(!currentFrame.getClass().getName().equals("updateBuyer")){
+            currentFrame.setVisible(false);
+            currentFrame = new updateBuyer();
+            currentFrame.setVisible(true);
+        }
     }//GEN-LAST:event_btnUpdateBuyerActionPerformed
+
+    private void btnBuyerDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuyerDetailsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBuyerDetailsActionPerformed
+
+    private void btnDeleteBuyerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteBuyerActionPerformed
+        if(!currentFrame.getClass().getName().equals("deleteBuyer")){
+            currentFrame.setVisible(false);
+            currentFrame = new deleteBuyer();
+            currentFrame.setVisible(true);
+        }
+    }//GEN-LAST:event_btnDeleteBuyerActionPerformed
 
     /**
      * @param args the command line arguments
