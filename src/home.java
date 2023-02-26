@@ -565,7 +565,7 @@ public class home extends javax.swing.JFrame {
     }//GEN-LAST:event_btnUpdateProductActionPerformed
 
     private void btnProductDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductDetailsActionPerformed
-         if(!currentFrame.getClass().getName().equals("updateProduct")){
+         if(!currentFrame.getClass().getName().equals("productDetails")){
             currentFrame.setVisible(false);
             currentFrame = new productDetails();
             currentFrame.setVisible(true);
@@ -573,7 +573,7 @@ public class home extends javax.swing.JFrame {
     }//GEN-LAST:event_btnProductDetailsActionPerformed
 
     private void btnDeleteProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteProductActionPerformed
-        if(!currentFrame.getClass().getName().equals("updateProduct")){
+        if(!currentFrame.getClass().getName().equals("deleteProduct")){
             currentFrame.setVisible(false);
             currentFrame = new deleteProduct();
             currentFrame.setVisible(true);

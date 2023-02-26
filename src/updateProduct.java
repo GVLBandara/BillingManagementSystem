@@ -365,7 +365,7 @@ public class updateProduct extends javax.swing.JFrame {
 
         try {
             Statement statement = connection.createStatement();
-            i = statement.executeUpdate("update buyer set product_name =  '"+ pname +"' ,  rate = '"+ rate +"' , description =  '"+ description +"' ,  active = '"+ active +"' where product_id = '"+ pid +"'");
+            i = statement.executeUpdate("update product set product_name =  '"+ pname +"' ,  rate = '"+ rate +"' , description =  '"+ description +"' ,  active = '"+ active +"' where product_id = '"+ pid +"'");
         } catch (SQLException e) {
             setAlwaysOnTop(false);
             JOptionPane.showMessageDialog(null, e.getMessage(), "Error!",JOptionPane.WARNING_MESSAGE);
