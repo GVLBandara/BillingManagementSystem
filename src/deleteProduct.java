@@ -1,3 +1,8 @@
+import java.sql.*;
+import database.DBConnection;
+import java.awt.Color;
+import javax.swing.JOptionPane;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -8,11 +13,13 @@
  * @author Gota
  */
 public class deleteProduct extends javax.swing.JFrame {
+    Connection connection;
 
     /**
      * Creates new form deleteProduct
      */
     public deleteProduct() {
+        connection = DBConnection.getDBConnection().getConnection();
         initComponents();
     }
 
@@ -25,21 +32,367 @@ public class deleteProduct extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jSeparator1 = new javax.swing.JSeparator();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jSeparator2 = new javax.swing.JSeparator();
+        jLabel6 = new javax.swing.JLabel();
+        btnSave = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        btnReset = new javax.swing.JButton();
+        btnClose = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jSeparator3 = new javax.swing.JSeparator();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        txtSearchID = new javax.swing.JTextField();
+        lblPID = new javax.swing.JLabel();
+        txtSearchName = new javax.swing.JTextField();
+        btnSearch = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        lblPName = new javax.swing.JLabel();
+        lblRate = new javax.swing.JLabel();
+        lblDescription = new javax.swing.JLabel();
+        lblActive = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocation(new java.awt.Point(380, 200));
+        setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(600, 450));
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel4.setText("Name");
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel5.setText("Rate");
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel6.setText("Description");
+
+        btnSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/delete.png"))); // NOI18N
+        btnSave.setText("Delete");
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveActionPerformed(evt);
+            }
+        });
+
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel7.setText("Active");
+
+        btnReset.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Reset.png"))); // NOI18N
+        btnReset.setText("Reset");
+        btnReset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnResetActionPerformed(evt);
+            }
+        });
+
+        btnClose.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/close Jframe.png"))); // NOI18N
+        btnClose.setText("Close");
+        btnClose.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCloseActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel3.setText("Product ID");
+        jLabel3.setMinimumSize(new java.awt.Dimension(66, 16));
+        jLabel3.setPreferredSize(new java.awt.Dimension(66, 16));
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel9.setText("or");
+
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/delete product ani.gif"))); // NOI18N
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/delete product.png"))); // NOI18N
+
+        txtSearchID.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        txtSearchID.setForeground(java.awt.Color.gray);
+        txtSearchID.setText("ID");
+        txtSearchID.setMinimumSize(new java.awt.Dimension(44, 22));
+        txtSearchID.setPreferredSize(new java.awt.Dimension(44, 22));
+        txtSearchID.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtSearchIDFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtSearchIDFocusLost(evt);
+            }
+        });
+        txtSearchID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSearchIDActionPerformed(evt);
+            }
+        });
+
+        lblPID.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblPID.setForeground(java.awt.Color.red);
+
+        txtSearchName.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        txtSearchName.setForeground(java.awt.Color.gray);
+        txtSearchName.setText("Product Name");
+        txtSearchName.setMaximumSize(new java.awt.Dimension(96, 22));
+        txtSearchName.setMinimumSize(new java.awt.Dimension(96, 22));
+        txtSearchName.setName(""); // NOI18N
+        txtSearchName.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtSearchNameFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtSearchNameFocusLost(evt);
+            }
+        });
+        txtSearchName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSearchNameActionPerformed(evt);
+            }
+        });
+
+        btnSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/search.png"))); // NOI18N
+        btnSearch.setText("Search");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel8.setText("Seatch by");
+
+        lblPName.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+
+        lblRate.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+
+        lblDescription.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+
+        lblActive.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator2)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jSeparator1)
+                        .addContainerGap())
+                    .addComponent(jSeparator3, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(116, 116, 116)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(lblPName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(lblRate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(lblDescription, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel8)
+                                .addGap(31, 31, 31)
+                                .addComponent(txtSearchName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel9)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtSearchID, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnSearch))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(lblActive, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(lblPID, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(122, 122, 122)
+                                .addComponent(btnSave)
+                                .addGap(45, 45, 45)
+                                .addComponent(btnReset)
+                                .addGap(47, 47, 47)
+                                .addComponent(btnClose))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(119, 119, 119)
+                                .addComponent(jLabel2)
+                                .addGap(28, 28, 28)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtSearchName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnSearch)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel9)
+                    .addComponent(txtSearchID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblPID))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(lblPName))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(lblRate))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(lblDescription))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(lblActive))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnSave)
+                    .addComponent(btnReset)
+                    .addComponent(btnClose))
+                .addGap(25, 25, 25))
         );
+
+        jLabel4.getAccessibleContext().setAccessibleName("");
+        jLabel5.getAccessibleContext().setAccessibleName("66");
+        jLabel6.getAccessibleContext().setAccessibleName("66");
+        jLabel7.getAccessibleContext().setAccessibleName("66");
+        jLabel3.getAccessibleContext().setAccessibleName("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
+        txtSearchName.requestFocus();
+        lblPID.setText("");
+        lblPName.setText("");
+        lblRate.setText("");
+        lblDescription.setText("");
+        lblActive.setText("");
+    }//GEN-LAST:event_btnResetActionPerformed
+
+    private void btnCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseActionPerformed
+        setVisible(false);
+    }//GEN-LAST:event_btnCloseActionPerformed
+
+    private void txtSearchIDFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSearchIDFocusGained
+        if(txtSearchID.getText().equals("ID")){
+            txtSearchID.setText("");
+            txtSearchID.setForeground(Color.BLACK);
+        }
+        txtSearchName.setText("Product Name");
+        txtSearchName.setForeground(Color.GRAY);
+    }//GEN-LAST:event_txtSearchIDFocusGained
+
+    private void txtSearchIDFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSearchIDFocusLost
+        if(txtSearchID.getText().equals("")){
+            txtSearchID.setText("ID");
+            txtSearchID.setForeground(Color.GRAY);
+        }
+    }//GEN-LAST:event_txtSearchIDFocusLost
+
+    private void txtSearchIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchIDActionPerformed
+        btnSearchActionPerformed(evt);
+    }//GEN-LAST:event_txtSearchIDActionPerformed
+
+    private void txtSearchNameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSearchNameFocusGained
+        if(txtSearchName.getText().equals("Product Name")){
+            txtSearchName.setText("");
+            txtSearchName.setForeground(Color.BLACK);
+        }
+        txtSearchID.setText("ID");
+        txtSearchID.setForeground(Color.GRAY);
+    }//GEN-LAST:event_txtSearchNameFocusGained
+
+    private void txtSearchNameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSearchNameFocusLost
+        if(txtSearchName.getText().equals("")){
+            txtSearchName.setText("Product Name");
+            txtSearchName.setForeground(Color.GRAY);
+        }
+    }//GEN-LAST:event_txtSearchNameFocusLost
+
+    private void txtSearchNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchNameActionPerformed
+        btnSearchActionPerformed(evt);
+    }//GEN-LAST:event_txtSearchNameActionPerformed
+
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        String query;
+        if(txtSearchID.getText().equals("ID"))
+        query = "select * from product where product_name = '"+ txtSearchName.getText() +"'";
+        else
+        query = "select * from product where product_id = '"+ txtSearchID.getText() +"'";
+
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet result = statement.executeQuery(query);
+            if(result.next()){
+                lblPID.setText(result.getString(1));
+                lblPName.setText(result.getString(2));
+                lblRate.setText(result.getString(3));
+                lblDescription.setText(result.getString(4));
+                lblActive.setText(result.getString(5));
+            }else{
+                setAlwaysOnTop(false);
+                JOptionPane.showMessageDialog(null, "Product does not exist","",1);
+                setAlwaysOnTop(true);
+                if(txtSearchID.getText().equals("ID"))
+                    txtSearchName.requestFocus();
+                else
+                    txtSearchID.requestFocus();
+            }
+        } catch (SQLException ex) {
+        }
+    }//GEN-LAST:event_btnSearchActionPerformed
+
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        String pid = lblPID.getText();
+        int i = 0;
+        setAlwaysOnTop(false);
+        if(JOptionPane.showConfirmDialog(null,  "Do you really want to delete "+ lblPID.getText() + "?", "", 0) == 0){
+            try {
+                Statement statement = connection.createStatement();
+                i = statement.executeUpdate("delete from product where product_id = '"+ pid +"'");
+            } catch (SQLException ex) {
+                setAlwaysOnTop(false);
+                JOptionPane.showMessageDialog(null, ex.getMessage(), "Error!",JOptionPane.WARNING_MESSAGE);
+                setAlwaysOnTop(true);
+            }
+            if(i == 1){
+                JOptionPane.showMessageDialog(null, "Successfully deleted!");
+                btnResetActionPerformed(evt);
+            }else{
+            }
+        }
+        setAlwaysOnTop(false);
+    }//GEN-LAST:event_btnSaveActionPerformed
 
     /**
      * @param args the command line arguments
@@ -77,5 +430,28 @@ public class deleteProduct extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnClose;
+    private javax.swing.JButton btnReset;
+    private javax.swing.JButton btnSave;
+    private javax.swing.JButton btnSearch;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JLabel lblActive;
+    private javax.swing.JLabel lblDescription;
+    private javax.swing.JLabel lblPID;
+    private javax.swing.JLabel lblPName;
+    private javax.swing.JLabel lblRate;
+    private javax.swing.JTextField txtSearchID;
+    private javax.swing.JTextField txtSearchName;
     // End of variables declaration//GEN-END:variables
 }

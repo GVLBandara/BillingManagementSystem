@@ -295,7 +295,9 @@ public class updateBuyer extends javax.swing.JFrame {
             setAlwaysOnTop(true);
         }
         if(i == 1){
+            setAlwaysOnTop(false);
             JOptionPane.showMessageDialog(null, "Successfully updated!");
+            setAlwaysOnTop(true);
             btnResetActionPerformed(evt);
         }else{
         }
@@ -340,7 +342,9 @@ public class updateBuyer extends javax.swing.JFrame {
                 else
                     cmbGender.setSelectedIndex(2);
             }else{
+                setAlwaysOnTop(false);
                 JOptionPane.showMessageDialog(null, "Contact number does not exist","",1);
+                setAlwaysOnTop(true);
                 txtContSearch.requestFocus();
             }
         } catch (SQLException ex) {

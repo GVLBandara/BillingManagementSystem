@@ -279,7 +279,9 @@ public class deleteBuyer extends javax.swing.JFrame {
                 lblEmail.setText(result.getString(5));
                 lblGender.setText(result.getString(6));
             }else{
+                setAlwaysOnTop(false);
                 JOptionPane.showMessageDialog(null, "Contact number does not exist","",1);
+                setAlwaysOnTop(true);
                 txtContSearch.requestFocus();
             }
         } catch (SQLException ex) {
@@ -294,6 +296,7 @@ public class deleteBuyer extends javax.swing.JFrame {
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         String contact = lblContact.getText();
         int i = 0;
+        setAlwaysOnTop(false);
         if(JOptionPane.showConfirmDialog(null,  "Do you really want to delete "+ lblName.getText() + "?", "", 0) == 0){
             try {
                 Statement statement = connection.createStatement();
@@ -309,6 +312,7 @@ public class deleteBuyer extends javax.swing.JFrame {
             }else{
             }
         }
+        setAlwaysOnTop(true);
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed

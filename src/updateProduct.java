@@ -372,7 +372,9 @@ public class updateProduct extends javax.swing.JFrame {
             setAlwaysOnTop(true);
         }
         if(i == 1){
+            setAlwaysOnTop(false);
             JOptionPane.showMessageDialog(null, "Successfully updated!");
+            setAlwaysOnTop(true);
             btnResetActionPerformed(evt);
         }else{
         }
@@ -473,8 +475,13 @@ public class updateProduct extends javax.swing.JFrame {
                 else
                     cmbActive.setSelectedIndex(1);
             }else{
+                setAlwaysOnTop(false);
                 JOptionPane.showMessageDialog(null, "Product does not exist","",1);
-                txtSearchName.requestFocus();
+                setAlwaysOnTop(true);
+                if(txtSearchID.getText().equals("ID"))
+                    txtSearchName.requestFocus();
+                else
+                    txtSearchID.requestFocus();
             }
         } catch (SQLException ex) {
         }

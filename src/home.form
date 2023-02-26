@@ -281,6 +281,7 @@
       </Properties>
       <Events>
         <EventHandler event="componentShown" listener="java.awt.event.ComponentListener" parameters="java.awt.event.ComponentEvent" handler="btnProductDetailsComponentShown"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnProductDetailsActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnDeleteProduct">
@@ -300,6 +301,7 @@
       </Properties>
       <Events>
         <EventHandler event="componentShown" listener="java.awt.event.ComponentListener" parameters="java.awt.event.ComponentEvent" handler="btnDeleteProductComponentShown"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDeleteProductActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnBilling">

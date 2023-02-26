@@ -391,7 +391,9 @@ public class newBuyer extends javax.swing.JFrame {
             setAlwaysOnTop(false);
         }
         if(i == 1){
+            setAlwaysOnTop(false);
             JOptionPane.showMessageDialog(null, "Successfully registered!");
+            setAlwaysOnTop(true);
             btnResetActionPerformed(evt);
         }else{
         }

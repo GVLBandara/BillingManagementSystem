@@ -290,7 +290,9 @@ public class newProduct extends javax.swing.JFrame {
             setAlwaysOnTop(true);
         }
         if(i == 1){
+            setAlwaysOnTop(false);
             JOptionPane.showMessageDialog(null, "Successfully registered!");
+            setAlwaysOnTop(true);
             btnResetActionPerformed(evt);
         }else{
         }

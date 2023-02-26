@@ -194,6 +194,11 @@ public class home extends javax.swing.JFrame {
                 btnProductDetailsComponentShown(evt);
             }
         });
+        btnProductDetails.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProductDetailsActionPerformed(evt);
+            }
+        });
 
         btnDeleteProduct.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/delete product.png"))); // NOI18N
         btnDeleteProduct.setMaximumSize(new java.awt.Dimension(100, 100));
@@ -202,6 +207,11 @@ public class home extends javax.swing.JFrame {
         btnDeleteProduct.addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentShown(java.awt.event.ComponentEvent evt) {
                 btnDeleteProductComponentShown(evt);
+            }
+        });
+        btnDeleteProduct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteProductActionPerformed(evt);
             }
         });
 
@@ -553,6 +563,22 @@ public class home extends javax.swing.JFrame {
             currentFrame.setVisible(true);
         }
     }//GEN-LAST:event_btnUpdateProductActionPerformed
+
+    private void btnProductDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductDetailsActionPerformed
+         if(!currentFrame.getClass().getName().equals("updateProduct")){
+            currentFrame.setVisible(false);
+            currentFrame = new productDetails();
+            currentFrame.setVisible(true);
+        }
+    }//GEN-LAST:event_btnProductDetailsActionPerformed
+
+    private void btnDeleteProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteProductActionPerformed
+        if(!currentFrame.getClass().getName().equals("updateProduct")){
+            currentFrame.setVisible(false);
+            currentFrame = new deleteProduct();
+            currentFrame.setVisible(true);
+        }
+    }//GEN-LAST:event_btnDeleteProductActionPerformed
 
     /**
      * @param args the command line arguments

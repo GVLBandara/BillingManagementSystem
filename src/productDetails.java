@@ -52,6 +52,8 @@ public class productDetails extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocation(new java.awt.Point(380, 200));
+        setUndecorated(true);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/details product.png"))); // NOI18N
 
