@@ -57,6 +57,7 @@ public class deleteProduct extends javax.swing.JFrame {
         lblActive = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setAlwaysOnTop(true);
         setLocation(new java.awt.Point(380, 200));
         setUndecorated(true);
         setPreferredSize(new java.awt.Dimension(600, 450));

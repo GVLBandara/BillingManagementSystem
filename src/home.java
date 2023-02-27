@@ -225,6 +225,11 @@ public class home extends javax.swing.JFrame {
                 btnBillingComponentShown(evt);
             }
         });
+        btnBilling.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBillingActionPerformed(evt);
+            }
+        });
 
         btnLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logout.png"))); // NOI18N
         btnLogout.setMaximumSize(new java.awt.Dimension(100, 100));
@@ -579,6 +584,14 @@ public class home extends javax.swing.JFrame {
             currentFrame.setVisible(true);
         }
     }//GEN-LAST:event_btnDeleteProductActionPerformed
+
+    private void btnBillingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBillingActionPerformed
+        if(!currentFrame.getClass().getName().equals("billing")){
+            currentFrame.setVisible(false);
+            currentFrame = new billing();
+            currentFrame.setVisible(true);
+        }
+    }//GEN-LAST:event_btnBillingActionPerformed
 
     /**
      * @param args the command line arguments

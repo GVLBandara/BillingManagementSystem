@@ -52,6 +52,7 @@ public class productDetails extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setAlwaysOnTop(true);
         setLocation(new java.awt.Point(380, 200));
         setUndecorated(true);
 

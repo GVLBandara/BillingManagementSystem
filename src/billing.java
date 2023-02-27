@@ -1,14 +1,16 @@
-import com.mysql.cj.protocol.a.LocalDateTimeValueEncoder;
 import java.sql.*;
 import database.DBConnection;
 import java.awt.Color;
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
 import java.util.Date;
 import javax.swing.table.DefaultTableModel;
+import com.itextpdf.text.*;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
+import java.io.FileOutputStream;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -72,11 +74,23 @@ public class billing extends javax.swing.JFrame {
         tblBill = new javax.swing.JTable();
         jLabel14 = new javax.swing.JLabel();
         txtQty = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        lblReturnAmount = new javax.swing.JLabel();
+        lblTotal = new javax.swing.JLabel();
+        btnReset = new javax.swing.JButton();
+        btnClose = new javax.swing.JButton();
+        txtPaidAmount = new javax.swing.JTextField();
+        btnPrint = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(1200, 550));
-        setMinimumSize(new java.awt.Dimension(1200, 550));
-        setPreferredSize(new java.awt.Dimension(1200, 600));
+        setAlwaysOnTop(true);
+        setLocation(new java.awt.Point(83, 200));
+        setMaximumSize(new java.awt.Dimension(1200, 520));
+        setMinimumSize(new java.awt.Dimension(1200, 520));
+        setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(1200, 520));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/billing frame.png"))); // NOI18N
 
@@ -246,6 +260,52 @@ public class billing extends javax.swing.JFrame {
             }
         });
 
+        jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel15.setText("Total");
+
+        jLabel16.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel16.setText("Paid Amount");
+
+        jLabel17.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel17.setText("Return Amount");
+
+        lblReturnAmount.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblReturnAmount.setText("0");
+
+        lblTotal.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblTotal.setText("0");
+
+        btnReset.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Reset.png"))); // NOI18N
+        btnReset.setText("Reset");
+        btnReset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnResetActionPerformed(evt);
+            }
+        });
+
+        btnClose.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/close Jframe.png"))); // NOI18N
+        btnClose.setText("Close");
+        btnClose.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCloseActionPerformed(evt);
+            }
+        });
+
+        txtPaidAmount.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtPaidAmount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPaidAmountActionPerformed(evt);
+            }
+        });
+
+        btnPrint.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/print.png"))); // NOI18N
+        btnPrint.setText("Print");
+        btnPrint.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPrintActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -319,7 +379,23 @@ public class billing extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 790, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnPrint))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(lblTotal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblReturnAmount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtPaidAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnReset))
+                .addGap(44, 44, 44)
+                .addComponent(btnClose)
+                .addGap(28, 28, 28))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -371,9 +447,29 @@ public class billing extends javax.swing.JFrame {
                     .addComponent(txtQty, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel15)
+                            .addComponent(lblTotal))
+                        .addGap(29, 29, 29)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel16)
+                            .addComponent(txtPaidAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(37, 37, 37)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel17)
+                            .addComponent(lblReturnAmount))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnReset)
+                            .addComponent(btnClose)
+                            .addComponent(btnPrint)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {txtSearchBContact, txtSearchPID, txtSearchaPName});
@@ -471,12 +567,82 @@ public class billing extends javax.swing.JFrame {
         DefaultTableModel tableModel = (DefaultTableModel) tblBill.getModel();
         tableModel.addRow(new Object[] {txtSearchaPName.getText(), lblDescription.getText(), lblRate.getText(), txtQty.getText(), total});
         finalTotal += total;
+        lblTotal.setText(String.valueOf(finalTotal));
         txtSearchaPName.requestFocus();
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void txtQtyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtQtyActionPerformed
         btnAdd.requestFocus();
     }//GEN-LAST:event_txtQtyActionPerformed
+
+    private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
+        txtSearchBName.setText("Buyer Name");
+        txtSearchBName.setForeground(Color.GRAY);
+        txtSearchBContact.setText("Contact No");
+        txtSearchBContact.setForeground(Color.GRAY);
+        txtSearchPID.setText("ID");
+        txtSearchPID.setForeground(Color.GRAY);
+        txtSearchaPName.setText("Product Name");
+        txtSearchaPName.setForeground(Color.GRAY);
+        txtQty.setText("1");
+        DefaultTableModel tableModel = (DefaultTableModel) tblBill.getModel();
+        tableModel.setRowCount(0);
+        txtSearchBName.requestFocus();
+    }//GEN-LAST:event_btnResetActionPerformed
+
+    private void btnCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseActionPerformed
+        setVisible(false);
+    }//GEN-LAST:event_btnCloseActionPerformed
+
+    private void txtPaidAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPaidAmountActionPerformed
+        int paidAmount = Integer.parseInt(txtPaidAmount.getText());
+        int returnAmount = paidAmount - finalTotal;
+        lblReturnAmount.setText(String.valueOf(returnAmount));
+        btnPrint.requestFocus();
+    }//GEN-LAST:event_txtPaidAmountActionPerformed
+
+    private void btnPrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrintActionPerformed
+        String name = txtSearchBName.getText();
+        String contact = txtSearchBContact.getText();
+        String email = lblEmail.getText();
+        String time = DateTimeFormatter.ofPattern("HH_mm_ss").format(LocalTime.now());
+        lblTime.setText(DateTimeFormatter.ofPattern("HH:mm:ss").format(LocalTime.now()));
+        String path = "C:\\Users\\Gota\\Desktop\\Java\\";
+        
+        Document doc = new Document();
+        try{
+            PdfWriter.getInstance(doc, new FileOutputStream(path + "" + name + "_" + lblDate.getText() + "_" + time + ".pdf"));
+            doc.open();
+            doc.add(new Paragraph("                                                        Billing Management System\n\n\n"));
+            doc.add(new Paragraph("Date & Time  :         " + lblDate.getText() + "   " + lblTime.getText() + "\nBuyer Details : \n        Name\t         :     " + name + "\n        Contact No\t :     " + contact + "\n        Email\t          :     " + email + "\n\n"));
+            
+            PdfPTable tbl = new PdfPTable(5);
+            tbl.addCell("Name");
+            tbl.addCell("Description");
+            tbl.addCell("Rate");
+            tbl.addCell("Quantity");
+            tbl.addCell("Price");
+            for(int i = 0; i < tblBill.getRowCount(); i++){
+                tbl.addCell(tblBill.getValueAt(i, 0).toString());
+                tbl.addCell(tblBill.getValueAt(i, 1).toString());
+                tbl.addCell(tblBill.getValueAt(i, 2).toString());
+                tbl.addCell(tblBill.getValueAt(i, 3).toString());
+                tbl.addCell(tblBill.getValueAt(i, 4).toString());
+            }
+            doc.add(tbl);
+            doc.add(new Paragraph("\nTotal                   =      " + finalTotal + "\nPaid amount       =      " + txtPaidAmount.getText() + "\nReturn Amount   =      " + lblReturnAmount.getText() + "\n\n                                                             Thank You For Visiting\n                                                               Please Come Again!"));
+            doc.close();
+            
+            setAlwaysOnTop(false);
+            JOptionPane.showMessageDialog(null, "Bill Generated");
+            setAlwaysOnTop(true);
+            btnResetActionPerformed(evt);
+        }catch(Exception e){
+            setAlwaysOnTop(false);
+            JOptionPane.showMessageDialog(null, e, "Error!", 0);
+            setAlwaysOnTop(true);
+        }
+    }//GEN-LAST:event_btnPrintActionPerformed
 
     private void searchBuyer(){
         String query;
@@ -588,12 +754,18 @@ public class billing extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
+    private javax.swing.JButton btnClose;
+    private javax.swing.JButton btnPrint;
+    private javax.swing.JButton btnReset;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -610,8 +782,11 @@ public class billing extends javax.swing.JFrame {
     private javax.swing.JLabel lblDescription;
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblRate;
+    private javax.swing.JLabel lblReturnAmount;
     private javax.swing.JLabel lblTime;
+    private javax.swing.JLabel lblTotal;
     private javax.swing.JTable tblBill;
+    private javax.swing.JTextField txtPaidAmount;
     private javax.swing.JTextField txtQty;
     private javax.swing.JTextField txtSearchBContact;
     private javax.swing.JTextField txtSearchBName;
